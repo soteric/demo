@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  release_id: 1
+  team_id: 1
+  scope_id: MyString
+
+two:
+  name: MyString
+  release_id: 1
+  team_id: 1
+  scope_id: MyString
