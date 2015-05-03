@@ -1,0 +1,34 @@
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Showing Team</div>
+  <div class="panel-body">
+	<%= link_to 'Back', teams_path %>
+  </div>
+	
+	<table class="table">
+	    <thead>
+	      <td>ID</td>
+	      <td>Team Name</td>
+	      <td>Pillar</td>
+	      <td>Created At</td>
+	      <td>Updated At</td>
+	      <td>Actions</td>
+	    </thead>
+	    <tbody>
+	        <tr>
+	          <td><%= @team.id %></td>
+	          <td><%= @team.name %></td>
+	          <td><%= @team.pillar_id %></td>
+	          <td><%= @team.created_at %></td>
+	          <td><%= @team.updated_at %></td>
+	          <td>
+	            <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_team_path, class: "label label-primary" %>
+	            <%= link_to '<i class="fa fa-times"></i> Remove'.html_safe, team_path, method: :delete, data: { confirm: 'It will remove all associated projects under this team. Are you sure you really want to remove this team?' }, class: "label label-danger" %>
+	          </td>
+	        </tr>
+	    </tbody>
+	  </table>
+
+</div>
+
+<br>

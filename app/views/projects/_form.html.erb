@@ -1,0 +1,14 @@
+<%= simple_form_for(@project) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :scope_id %>
+    <%= f.input :team_id, collection: Team.all.map {|m| [m.name, m.id, {value: m.id}] } %>
+    <%= f.input :release_id, collection: Release.all.map {|r| [r.name, r.id, {value: r.id}] } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>

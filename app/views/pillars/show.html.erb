@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Showing Pillar</div>
+  <div class="panel-body">
+	<%= link_to 'Back', pillars_path %>
+  </div>
+	
+	<table class="table">
+	    <thead>
+	      <td>ID</td>
+	      <td>Pillar Name</td>
+	      <td>Created At</td>
+	      <td>Updated At</td>
+	      <td>Actions</td>
+	    </thead>
+	    <tbody>
+	        <tr>
+	          <td><%= @pillar.id %></td>
+	          <td><%= @pillar.name %></td>
+	          <td><%= @pillar.created_at %></td>
+	          <td><%= @pillar.updated_at %></td>
+	          <td>
+	            <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_pillar_path, class: "label label-primary" %>
+	            <%= link_to '<i class="fa fa-times"></i> Remove'.html_safe, pillar_path, method: :delete, data: { confirm: 'It will remove all associated projects under this pillar. Are you sure you really want to remove this pillar?' }, class: "label label-danger" %>
+	          </td>
+	        </tr>
+	    </tbody>
+	  </table>
+
+</div>
+
+<br>

@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Showing Release</div>
+  <div class="panel-body">
+	<%= link_to 'Back', releases_path %>
+  </div>
+	
+	<table class="table">
+	    <thead>
+	      <td>ID</td>
+	      <td>release Name</td>
+	      <td>Created At</td>
+	      <td>Updated At</td>
+	      <td>Actions</td>
+	    </thead>
+	    <tbody>
+	        <tr>
+	          <td><%= @release.id %></td>
+	          <td><%= @release.name %></td>
+	          <td><%= @release.created_at %></td>
+	          <td><%= @release.updated_at %></td>
+	          <td>
+	            <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_release_path, class: "label label-primary" %>
+	            <%= link_to '<i class="fa fa-times"></i> Remove'.html_safe, release_path, method: :delete, data: { confirm: 'It will remove all associated projects under this release. Are you sure you really want to remove this release?' }, class: "label label-danger" %>
+	          </td>
+	        </tr>
+	    </tbody>
+	  </table>
+
+</div>
+
+<br>

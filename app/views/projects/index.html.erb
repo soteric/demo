@@ -1,0 +1,40 @@
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Manage Projects</div>
+  <div class="panel-body">
+    <%= link_to '<i class="fa fa-plus-square"></i> New Project'.html_safe, new_project_path, class: "btn btn-success" %>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <td>ID</td>
+      <td>Project Name</td>
+      <td>Scope ID</td>
+      <td>Team</td>
+      <td>Release ID</td>
+      <td>Created At</td>
+      <td>Updated At</td>
+      <td>Actions</td>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= project.id %></td>
+          <td><%= project.name %></td>
+          <td><%= project.scope_id %></td>
+          <td><%= project.team_id %></td>
+          <td><%= project.release_id %></td>
+          <td><%= project.created_at %></td>
+          <td><%= project.updated_at %></td>
+          <td>
+            <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_project_path(project), class: "label label-primary" %>
+            <%= link_to '<i class="fa fa-times"></i> Remove'.html_safe, project_path(project), method: :delete, data: { confirm: 'It will remove all associated projects under this team. Are you sure you really want to remove this team?' }, class: "label label-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>

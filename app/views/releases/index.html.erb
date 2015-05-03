@@ -1,0 +1,38 @@
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Manage Releases</div>
+  <div class="panel-body">
+    <%= link_to '<i class="fa fa-plus-square"></i> New Release'.html_safe, new_release_path, class: "btn btn-success" %>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <td>ID</td>
+      <td>Release Name</td>
+      <td>Created At</td>
+      <td>Updated At</td>
+      <td>Actions</td>
+    </thead>
+    <tbody>
+      <% @releases.each do |release| %>
+        <tr>
+          <td><%= release.id %></td>
+          <td>
+            <%= release.name %>
+          </td>
+          <td><%= release.created_at %></td>
+          <td><%= release.updated_at %></td>
+          <td>
+            <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_release_path(release), class: "label label-primary" %>
+            <%= link_to '<i class="fa fa-times"></i> Remove'.html_safe, release_path(release), method: :delete, data: { confirm: 'It will remove all associated projects under this release. Are you sure you really want to remove this release?' }, class: "label label-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+
