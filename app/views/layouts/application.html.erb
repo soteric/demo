@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>iReport</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<%= render 'shared/navbar' %>
+	<div class="container">
+    <% if notice %>
+      <div class="alert alert-success" id="notice">
+        <%= notice %>
+        <br>
+        <%= alert %></div>
+    <% end %>
+		<%= yield %>
+	</div>
+<div class="footer navbar-fixed-bottom">
+  <div class="container">
+    <p class="text-muted text-center">
+    	<i class="fa fa-bar-chart fa-2x"></i>
+    	&nbsp;&nbsp;&nbsp;&nbsp;iReport @ SuccessFactors.com 2015 (Rails version)
+    </p>
+</body>
+</html>
