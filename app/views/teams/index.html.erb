@@ -1,3 +1,4 @@
+<%= render 'shared/toolbar' %>
 <div class="panel panel-primary">
   <!-- Default panel contents -->
   <div class="panel-heading">Manage Teams</div>
@@ -19,8 +20,8 @@
       <% @teams.each do |team| %>
         <tr>
           <td><%= team.id %></td>
-          <td><%= team.name %></td>
-          <td><%= team.pillar_id %></td>
+          <td><%= team.name.upcase %></td>
+          <td><%= team.pillar.name.upcase %></td>
           <td><%= team.created_at %></td>
           <td><%= team.updated_at %></td>
           <td>

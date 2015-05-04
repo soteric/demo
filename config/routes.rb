@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
   devise_for :users
-
-  root to: "home#index"
-
-  resources :pillars
-  resources :releases
-  resources :teams
-  resources :projects
+  
+  scope '/admin' do
+    root to: "pillars#index"
+    resources :pillars
+    resources :releases
+    resources :teams
+    resources :projects
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

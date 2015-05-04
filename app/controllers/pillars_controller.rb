@@ -1,5 +1,6 @@
 class PillarsController < ApplicationController
 	before_action :set_pillar, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /pillars
   # GET /pillars.json
