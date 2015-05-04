@@ -25,7 +25,7 @@
           <td><%= release.updated_at %></td>
           <td>
             <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_release_path(release), class: "label label-primary" %>
-            <%= link_to '<i class="fa fa-times"></i> Remove'.html_safe, release_path(release), method: :delete, data: { confirm: 'It will remove all associated projects under this release. Are you sure you really want to remove this release?' }, class: "label label-danger" %>
+            <%= link_to '<i class="fa fa-times"></i> Remove'.html_safe, release_path(release), method: :delete, data: { confirm: 'It will remove all associated projects under this release. Are you sure want to remove this release?' }, class: "label label-danger" %>
           </td>
         </tr>
       <% end %>

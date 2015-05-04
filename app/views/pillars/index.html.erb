@@ -25,7 +25,7 @@
           <td><%= pillar.updated_at %></td>
           <td>
             <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_pillar_path(pillar), class: "label label-primary" %>
-            <%= link_to '<i class="fa fa-times"></i> Remove'.html_safe, pillar_path(pillar), method: :delete, data: { confirm: 'It will remove all associated projects under this pillar. Are you sure you really want to remove this pillar?' }, class: "label label-danger" %>
+            <%= link_to '<i class="fa fa-times"></i> Remove'.html_safe, pillar_path(pillar), method: :delete, data: { confirm: 'It will remove all associated teams under this pillar. Are you sure want to remove this pillar?' }, class: "label label-danger" %>
           </td>
         </tr>
       <% end %>
