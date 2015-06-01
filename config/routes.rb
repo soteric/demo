@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  
+  get "backlog", to: "home#backlog"
+
   scope '/admin' do
-    root to: "pillars#index"
+    root "home#index"
     resources :pillars
     resources :releases
     resources :teams

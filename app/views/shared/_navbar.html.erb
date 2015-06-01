@@ -13,12 +13,17 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="/dashboard#backlog"><i class="fa fa-chevron-right"></i> BACKLOG</a></li>
-			<li><a href="/dashboard#defect"><i class="fa fa-chevron-right"></i> DEFECT</a></li>
+			<li class="active"><a href="/backlog"><i class="fa fa-chevron-right"></i> BACKLOG</a></li>
 		</ul>
 		
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="/users/sign_in">ADMIN LOGIN</a></li>
+			<% if user_signed_in? %>
+				<li><a href="/users/edit">Welcome <%= current_user.email.split('@')[0] %>!</a></li>
+				<li><a href="/users/sign_out"><i class="fa fa-sign-out"></i> SIGN OUT</a></li>
+				<li><a href="/admin/pillars">Admin Tools</a></li>
+			<% else %>
+				<li><a href="/users/sign_in"><i class="fa fa-sign-in"></i> ADMIN</a></li>
+			<% end %>
 			<li><a href="mailto:ewang@successfactors.com"><i class="fa fa-envelope-o"></i> SUPPORT</a></li>
 		</ul>
 	</div>

@@ -1,0 +1,92 @@
+<div id="sprint_nav" class="row text-center">
+    <%= link_to '<i class="fa fa-chevron-right"></i> Sprint 1'.html_safe, backlog_path(:sprint => "Sprint 1"), class: "btn btn-success" %>
+    <%= link_to '<i class="fa fa-chevron-right"></i> Sprint 2'.html_safe, backlog_path(:sprint => "Sprint 2"), class: "btn btn-success" %>
+    <%= link_to '<i class="fa fa-chevron-right"></i> Code Freeze'.html_safe, backlog_path(:sprint => "Code Freeze"), class: "btn btn-success" %>
+</div>
+<br/>
+
+<div id="ichart" class="row span12 center-block" style='height: auto; min-height: 680px'></div>
+
+<script type="text/javascript">
+	$(function () { 
+	    $('#ichart').highcharts({
+	        chart: {
+	            type: 'column',
+                spacingTop: 20,
+                marginBottom: 70,
+                borderRadius: 0
+	        },
+	        credits: {
+                enabled: false
+            },
+	        title: {
+	            text: '<%= @title %>',
+	            style: {
+                    fontWeight: 'bold',
+                    fontSize: '24px',
+                    color: "darkgray"
+                }
+	        },
+	        xAxis: {
+	            categories: <%= @categories.to_s.html_safe %>
+	        },
+	        yAxis: {
+	            min: 0,
+	            title: {
+	                text: '# of Backlog Item'
+	            },
+	            stackLabels: {
+	                enabled: true,
+	                style: {
+	                    fontWeight: 'bold',
+	                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+	                }
+	            }
+	        },
+	        legend: {
+                align: 'right',
+                floating: true,
+                borderRadius: 0,
+                borderWidth: 0
+            },
+	        tooltip: {
+                formatter: function() {
+                    return '<b>' + this.x + '</b><br/>' +
+                        this.series.name + ': ' + this.y + '<br/>' +
+                        'Total: ' + this.point.stackTotal + '<br/><br/>' + '<label style="color: blue">Click bar to view detail</label>';
+                }
+            },
+	        plotOptions: {
+                column: {
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true,
+                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                        formatter: function() {
+                            if (this.y > 0) {
+                                return this.y;
+                            }
+                        }
+                    }
+                }
+            },
+	        series: [{
+                        name: 'Not Started',
+                        data: <%= @not_started.to_s.html_safe %>,
+                        color: '#FF5B79'
+                    }, {
+                        name: 'Dev In-Progress',
+                        data: <%= @dev_in_progress.to_s.html_safe %>,
+                        color: '#6C71FF'
+                    }, {
+                        name: 'QA In-Progress',
+                        data: <%= @qa_in_progress.to_s.html_safe %>,
+                        color: '#2531FF'
+                    }, {
+                        name: 'Completed',
+                        data: <%= @completed.to_s.html_safe %>,
+                        color: '#008000'
+                    }]
+	    });
+	});
+</script>
