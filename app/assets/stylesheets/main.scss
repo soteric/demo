@@ -188,12 +188,12 @@ table thead {
 #sprint_nav a {
   font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
 	background-color: white;
-	color: lightgray;
-	border-color: lightgray;
+	color: rgba(94, 97, 99, 0.70);
+	border-color: rgba(94, 97, 99, 0.70);
 	width: 180px;
 	margin: 5px;
 }
 #sprint_nav a:hover {
-	color: rgba(94, 97, 99, 0.70);
-	border-color: rgba(94, 97, 99, 0.70)
+    color: rgba(94, 97, 99, 0.90);
+	border-color: rgba(94, 97, 99, 0.90);
 }

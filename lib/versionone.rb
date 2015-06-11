@@ -79,7 +79,7 @@ module Versionone
 		return [count_not_started, count_dev, count_qa, count_completed]
 	end
 
-	def v1_query(query, host='versionone.successfactors.com', user='ewang', domain='ah_nt_domain', password='Welcomeew^')
+	def v1_query(query, host='versionone.successfactors.com', user='ewang', domain='ah_nt_domain', password='Welcomecw!')
 		xmlfile = nil
 		Net::HTTP.start('versionone.successfactors.com') do |http|
 			request = Net::HTTP::Get.new(query)

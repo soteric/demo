@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505075705) do
+ActiveRecord::Schema.define(version: 20150512051743) do
 
   create_table "backlog_charts", force: :cascade do |t|
     t.integer  "not_start",       limit: 4
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 20150505075705) do
     t.integer  "qa_in_progress",  limit: 4
     t.integer  "done",            limit: 4
     t.integer  "team_id",         limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "backlog_reports", force: :cascade do |t|
+    t.integer  "project_id",      limit: 4
+    t.integer  "not_started",     limit: 4
+    t.integer  "dev_in_progress", limit: 4
+    t.integer  "qa_in_progress",  limit: 4
+    t.integer  "done",            limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
